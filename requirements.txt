@@ -1,5 +1,9 @@
 streamlit 
 pandas 
-plotly.express 
+plotly 
 folium
 openpyxl
+matplotlib
+random
+os
+
