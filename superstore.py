@@ -14,10 +14,10 @@ import pandas as pd
 
 # If a file is uploaded, read it directly
 file_path = "C:/Users/Deshakthi Akalanka/Pictures/CW/Global_Superstore_Lite.csv"
-if file is not None:
-    df = pd.read_csv(file )
-else:
-    df = pd.read_csv(file_path)
+#if file is not None:
+   # df = pd.read_csv(file )
+#else:
+    #df = pd.read_csv(file_path)
 
 
 # Set page configuration
