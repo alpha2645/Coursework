@@ -12,14 +12,6 @@ warnings.filterwarnings('ignore')
 # Function to load data
 import pandas as pd
 
-# If a file is uploaded, read it directly
-#file_path = "C:/Users/Deshakthi Akalanka/Pictures/CW/Global_Superstore_Lite.csv"
-#if file is not None:
-   # df = pd.read_csv(file )
-#else:
-    #df = pd.read_csv(file_path)
-
-
 # Set page configuration
 st.set_page_config(page_title="Superstore Dashboard", page_icon=":bar_chart:", layout="wide")
 
@@ -28,10 +20,10 @@ st.title("Superstore Dashboard")
 st.markdown('<style>div.block-container{padding-top:1rem;}</style>', unsafe_allow_html=True)
 
 # Load data
-#fl = st.file_uploader(":file_folder: Upload a file", type=(["csv", "txt", "xlsx", "xls"]))
-#df = load_data(fl)
 df = pd.read_excel('Global Superstore lite.xlsx')
+
 # Filter by date
+
 col1, col2 = st.columns((2))
 with col1:
     st.subheader("Filter by Date")
