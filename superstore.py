@@ -10,13 +10,15 @@ import plotly.graph_objects as go
 warnings.filterwarnings('ignore')
 
 # Function to load data
-def load_data(file):
-    if file is not None:
-        df = pd.read_csv(file, encoding="ISO-8859-1")
-    else:
-        os.chdir(r"C:\Users\Deshakthi Akalanka\Pictures\CW")  
-        df = pd.read_csv("Global_Superstore_Lite.csv")
-    return df
+import pandas as pd
+
+# If a file is uploaded, read it directly
+file_path = "C:/Users/Deshakthi Akalanka/Pictures/CW/Global_Superstore_Lite.csv"
+if file is not None:
+    df = pd.read_csv(file )
+else:
+    df = pd.read_csv(file_path)
+
 
 # Set page configuration
 st.set_page_config(page_title="Superstore Dashboard", page_icon=":bar_chart:", layout="wide")
