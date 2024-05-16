@@ -1,7 +1,6 @@
 streamlit 
 pandas 
 plotly.express 
-warnings
 folium
 random
 plotly.graph_objects 
