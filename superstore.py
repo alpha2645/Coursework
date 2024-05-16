@@ -71,3 +71,40 @@ with col2:
                  hole=0.4, labels={'Sales': 'Total Sales'})
     st.plotly_chart(fig, use_container_width=True, height=300)
 
+    # Histogram of Sales
+# Interactive Histogram
+st.subheader("Histogram of Sales")
+fig_hist = px.histogram(df, x="Sales", nbins=50, title="Histogram of Sales")
+st.plotly_chart(fig_hist, use_container_width=True)
+
+# Interactive Heatmap
+st.subheader(" Heatmap")
+
+# Group data by Region and Category and calculate total sales
+heatmap_data = df.groupby(["Region", "Category"], as_index=False)["Sales"].sum()
+
+# Pivot the data for heatmap visualization
+heatmap_pivot = heatmap_data.pivot(index='Category', columns='Region', values='Sales')
+
+# Create the heatmap using Plotly Express
+fig_heatmap = px.imshow(heatmap_pivot,
+                        labels=dict(x="Region", y="Category", color="Total Sales"),
+                        x=heatmap_pivot.columns,
+                        y=heatmap_pivot.index,
+                        color_continuous_scale="Viridis",
+                        title="Heatmap of Sales by Region and Category")
+st.plotly_chart(fig_heatmap, use_container_width=True)
+#  Pie Chart
+st.subheader( "Pie Chart")
+
+# Group data by Segment and calculate total sales
+segment_sales = df.groupby("Segment", as_index=False)["Sales"].sum()
+
+# Create the pie chart using Plotly Express
+fig_pie = px.pie(segment_sales, values="Sales", names="Segment", 
+                 title="Sales Distribution by Segment",
+                 hole=0.4, labels={'Sales': 'Total Sales'})
+st.plotly_chart(fig_pie, use_container_width=True)
+
+
+
