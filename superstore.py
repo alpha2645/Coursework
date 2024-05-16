@@ -14,8 +14,8 @@ def load_data(file):
     if file is not None:
         df = pd.read_csv(file, encoding="ISO-8859-1")
     else:
-        #os.chdir(r"C:\Users\Deshakthi Akalanka\Pictures\CW")  
-        df = pd.read_csv("Global_Superstore_Lite.csv", encoding="ISO-8859-1")
+        os.chdir(r"C:\Users\Deshakthi Akalanka\Pictures\CW")  
+        df = pd.read_csv("Global_Superstore_Lite.csv")
     return df
 
 # Set page configuration
