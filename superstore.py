@@ -20,10 +20,10 @@ st.title("Superstore Dashboard")
 st.markdown('<style>div.block-container{padding-top:1rem;}</style>', unsafe_allow_html=True)
 
 # Load data
+
 df = pd.read_excel('Global Superstore lite.xlsx')
 
 # Filter by date
-
 col1, col2 = st.columns((2))
 with col1:
     st.subheader("Filter by Date")
@@ -70,8 +70,8 @@ cl1, cl2 = st.columns((2))
 with cl1:
     with st.expander("Category_ViewData"):
         st.write(category_df.style.background_gradient(cmap="Blues"))
-        csv = category_df.to_csv(index=False).encode('utf-8')
-        st.download_button("Download Data", data=csv, file_name="Category.csv", mime="text/csv",
+        csv = category_df.to_excel(index=False).encode('utf-8')
+        st.download_button("Download Data", data=csv, file_name="Category.xlsx", mime="text/xlsx",
                            help='Click here to download the data as a CSV file')
 
 with cl2:
@@ -79,7 +79,7 @@ with cl2:
         region_sales = df.groupby(by="Region", as_index=False)["Sales"].sum()
         st.write(region_sales.style.background_gradient(cmap="Oranges"))
         csv = region_sales.to_csv(index=False).encode('utf-8')
-        st.download_button("Download Data", data=csv, file_name="Region.csv", mime="text/csv",
+        st.download_button("Download Data", data=csv, file_name="Region.xlsx", mime="text/xlsx",
                            help='Click here to download the data as a CSV file')
 
 # Hierarchical view of Sales
@@ -113,8 +113,8 @@ st.plotly_chart(fig4, use_container_width=True)
 
 def download_hierarchical_data():
     data_to_download = df[['Region', 'Category', 'Sub-Category', 'Sales', 'Total Sales']]
-    csv = data_to_download.to_csv(index=False).encode('utf-8')
-    st.download_button("Download Hierarchical Data", data=csv, file_name="Hierarchical_Sales.csv", mime="text/csv")
+    xlsx = data_to_download.to_xlsx(index=False).encode('utf-8')
+    st.download_button("Download Hierarchical Data", data=csv, file_name="Hierarchical_Sales.xlsx", mime="text/xlsx")
 
 # Add download button and display the chart
 st.button("View Data", on_click=download_hierarchical_data)
@@ -187,8 +187,8 @@ with st.expander("Summary_Table"):
 
 
 # Download original DataSet
-csv = df.to_csv(index=False).encode('utf-8')
-st.download_button('Download Data', data=csv, file_name="Data.csv", mime="text/csv")
+xlsx = df.to_xlsx(index=False).encode('utf-8')
+st.download_button('Download Data', data=xlsx, file_name="Data.xlsx", mime="text/xlsx")
                 
                 
                 
@@ -208,8 +208,8 @@ with chart1:
     Downloads the data used for the Segment wise Sales pie chart as a CSV file.
     """
     data_to_download = df[['Segment', 'Sales']]
-    csv = data_to_download.to_csv(index=False).encode('utf-8')
-    st.download_button("Download Segment Data", data=csv, file_name="Segment_Sales.csv", mime="text/csv")
+    xlsx = data_to_download.to_xlsx(index=False).encode('utf-8')
+    st.download_button("Download Segment Data", data=xlsx, file_name="Segment_Sales.csv", mime="text/xlsx")
   st.button("View Segment Data", on_click=download_segment_data)
 
 # Category wise Sales
@@ -225,7 +225,7 @@ with chart2:
     Downloads the data used for the Category wise Sales pie chart as a CSV file.
     """
     data_to_download = df[['Category', 'Sales']]
-    csv = data_to_download.to_csv(index=False).encode('utf-8')
-    st.download_button("Download Category Data", data=csv, file_name="Category_Sales.csv", mime="text/csv")
+    xlsx = data_to_download.to_xlsx(index=False).encode('utf-8')
+    st.download_button("Download Category Data", data=xlsx, file_name="Category_Sales.xlsx", mime="text/xlsx")
   st.button("View Category Data", on_click=download_category_data)
 
