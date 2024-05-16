@@ -199,7 +199,7 @@ st.download_button('Download Data', data=csv, file_name="Data.csv", mime="text/c
                 
                 
                 
-                chart1, chart2 = st.columns(2)
+chart1, chart2 = st.columns(2)
 
 # Segment wise Sales
 with chart1:
