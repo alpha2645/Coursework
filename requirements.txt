@@ -1,0 +1,8 @@
+streamlit 
+pandas 
+plotly.express 
+os
+warnings
+folium
+random
+plotly.graph_objects 
