@@ -2,5 +2,4 @@ streamlit
 pandas 
 plotly.express 
 folium
-random
 plotly.graph_objects 
